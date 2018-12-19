@@ -1,2 +1,2 @@
-Hallo Welt
-Ich bin Dev
+Hallo Wt
+Ich n Dev
