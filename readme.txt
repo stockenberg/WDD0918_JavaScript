@@ -1,4 +1,0 @@
-<!Doctype HTML>
-<head>
-
-</head>
