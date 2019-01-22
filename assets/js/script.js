@@ -1,58 +1,67 @@
+/** Variables **/
+let boxes = document.querySelectorAll('.lightbox');
+let lightBox = document.querySelector('#lightbox');
 
-var boxes = document.getElementsByClassName('lightbox');
+/** EVENTS */
 
-function generateLightbox(imgURL, imgDescription) {
-    var div = document.createElement('div');
-    div.id = "lightbox";
-
-    div.appendChild(generatedImg(imgURL, imgDescription));
-    div.appendChild(generatedThumbnails());
-    // Write HTML to Document Body
-    document.body.appendChild(div);
+for (let index = 0; index < boxes.length; index++) {
+    boxes[index].onclick = openLightBox;
 }
 
+lightBox.onclick = closeLightbox;
 
-function generatedImg(imgURL, imgDescription){
+generateThumbnails();
 
-    var figure = document.createElement('figure');
-    var img = document.createElement('img');
-    img.src = imgURL;
-    img.alt = imgDescription;
+/** FUNCTIONS **/
 
-    var figcaption = document.createElement('figcaption');
-    figcaption.innerHTML = imgDescription;
-
-    figure.appendChild(img);
-    figure.appendChild(figcaption);
-    return figure;
+function openLightBox(evt) {
+    let imgSrc = evt.target.src;
+    let imgDesc = evt.target.nextElementSibling.innerText;
+    lightBox.style.display = 'block';
+    let img = lightBox.children[0].children[0];
+    img.src = imgSrc;
+    img.nextElementSibling.innerText = imgDesc;
 }
 
+function generateThumbnails() {
+    let imgSrcs = [];
+    /** get all img srcs */
+    for(let i = 0; i < boxes.length; i++){
+        imgSrcs.push(boxes[i].src);
+    }
+    console.log(imgSrcs);
 
-function generatedThumbnails() {
-    var ul = document.createElement('ul');
+    /** Build thumbnails */
+    for(let i = 0; i < imgSrcs.length; i++){
+        let li = document.createElement('li');
+        let img = document.createElement('img');
+        img.src = imgSrcs[i];
+        img.height = "50";
 
-    for(var i = 0; i < boxes.length; i++){
-        var li = document.createElement('li');
+        // delete me if you dont want thumbnail actions
+        img.onclick = changeImgViaThumbnail;
+
+        li.appendChild(img);
+        let ul = document.querySelector('#thumbnails');
         ul.appendChild(li);
     }
-    return ul;
 }
 
-function openLightbox(e) {
-    var imgURL = e.target.src;
-    var imgDescription = e.target.nextElementSibling.innerHTML;
-    // generate Lightbox here!
-    generateLightbox(imgURL, imgDescription);
+function changeImgViaThumbnail(e){
+    console.log(e);
+    let src = e.target.src;
+    let img = lightBox.children[0].children[0];
+    img.src = src;
 }
 
-// Lightbox loop
-for(var i = 0; i < boxes.length; i++){
-    boxes[i].onclick = openLightbox;
+function closeLightbox(e) {
+    if (e.target.tagName !== 'IMG'
+        && e.target.tagName !== 'LI'
+        && e.target.tagName !== 'FIGCAPTION'
+        && e.target.tagName !== 'UL'
+    ) {
+        lightBox.style.display = 'none';
+    }
 
 }
 
-
-
-
-
-//document.body.appendChild(html);

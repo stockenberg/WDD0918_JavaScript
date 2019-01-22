@@ -145,10 +145,6 @@ body {
 
 #lightbox ul li{
     display: inline-block;
-    width: 12px;
-    height: 12px;
+
     margin: 0px 5px;
-    background: white;
-    border-radius: 40px;
-    text
 }
