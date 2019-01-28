@@ -5,25 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <link rel="stylesheet" href="assets/fonts/icofont/icofont-1.0.1.min.css">
     <meta name="generator" content="Jekyll v3.8.5">
     <title>Cover Template · Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
 
-
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
     <!-- Custom styles for this template -->
     <link href="assets/css/cover.css" rel="stylesheet">
 </head>
@@ -44,31 +32,29 @@
         <div id="gallery">
 
             <figure>
-                <img src="assets/img/christopher-czermak-1293184-unsplash.jpg" alt="Krasser Typ" class="lightbox">
+                <img src="assets/img/christopher-czermak-1293184-unsplash.jpg" alt="Krasser Typ" data-index="0" class="lightbox">
                 <figcaption>Whats on my back?</figcaption>
             </figure>
 
             <figure>
-                <img src="assets/img/garin-chadwick-1293834-unsplash.jpg" alt="Krasser Typ 1" class="lightbox">
+                <img src="assets/img/garin-chadwick-1293834-unsplash.jpg" alt="Krasser Typ 1" data-index="1" class="lightbox">
                 <figcaption>Duuude... sweet</figcaption>
             </figure>
 
             <figure>
-                <img src="assets/img/pawel-czerwinski-1294341-unsplash.jpg" alt="Krasser Typ 2" class="lightbox">
+                <img src="assets/img/pawel-czerwinski-1294341-unsplash.jpg" alt="Krasser Typ 2" data-index="2" class="lightbox">
                 <figcaption>Who is it ?</figcaption>
             </figure>
 
             <figure>
-                <img src="assets/img/stanley-dai-242205-unsplash.jpg" alt="Krasser Typ 3" class="lightbox">
+                <img src="assets/img/stanley-dai-242205-unsplash.jpg" alt="Krasser Typ 3" data-index="3" class="lightbox">
                 <figcaption>say whaaat ?!</figcaption>
             </figure>
 
             <figure>
-                <img src="assets/img/tom-sodoge-1169776-unsplash.jpg" alt="Krasser Typ 4" class="lightbox">
+                <img src="assets/img/tom-sodoge-1169776-unsplash.jpg" alt="Krasser Typ 4" data-index="4" class="lightbox">
                 <figcaption>Iam here!</figcaption>
             </figure>
-
-
 
         </div>
     </main>
@@ -81,10 +67,16 @@
     </footer>
 
     <div id="lightbox" style="display: none;">
-        <figure>
-            <img src="http://localhost:4000/assets/img/garin-chadwick-1293834-unsplash.jpg" alt="Duuude... sweet">
-            <figcaption>Duuude... sweet</figcaption>
-        </figure>
+        <div class="mst-container">
+            <figure>
+                <img src="http://localhost:4000/assets/img/garin-chadwick-1293834-unsplash.jpg" alt="Duuude... sweet">
+                <figcaption>Duuude... sweet</figcaption>
+            </figure>
+            <div class="controls">
+                <a href="#" class="left"><i class="icofont-thin-left"></i></a>
+                <a href="#" class="right"><i class="icofont-thin-right"></i></a>
+            </div>
+        </div>
         <ul id="thumbnails">
 
         </ul>

@@ -127,13 +127,14 @@ body {
 }
 
 #lightbox figure img{
-    margin: auto;
-    width: 70%;
+    width: 100%;
     height: auto;
 
 }
-#lightbox figure{
-    margin-top: 16vh;
+#lightbox .mst-container{
+    margin: 16vh auto 0;
+    width: 45%;
+    position: relative;
 }
 
 #lightbox ul{
@@ -143,8 +144,36 @@ body {
     padding: 0;
 }
 
+.controls a{
+    position: absolute;
+    line-height: 0;
+    top: calc(50% - 40px);
+    font-size: 80px;
+    text-decoration: none;
+}
+
+.controls a:hover i{
+    color: #00918c;
+}
+
+.controls a.left{
+    left: -15vh;
+}
+
+.controls a.right{
+    right: -15vh;
+}
+
 #lightbox ul li{
     display: inline-block;
-
     margin: 0px 5px;
+}
+
+
+#thumbnails img{
+    opacity: 0.7;
+}
+
+#thumbnails img:hover{
+    opacity: 1;
 }
