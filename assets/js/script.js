@@ -5,104 +5,76 @@ let controlBtns = document.querySelector('.controls').children;
 let leftButton = controlBtns[0];
 let rightButton = controlBtns[1];
 
-/**  INIT  */
-generateThumbnails();
 
-
-/**
- * #### EVENTS #####
- * */
-
+/** EVENTS */
 for (let index = 0; index < boxes.length; index++) {
     boxes[index].onclick = openLightBox;
 }
 
-/** Close Lightbox **/
 lightBox.onclick = closeLightbox;
 
-/** Navigate through Images in Lightbox */
 leftButton.onclick = function () {
+
     /* Generate Index */
-    let prevImgIndex = getIndexFromLightbox() - 1;
-    changeImgByIndex(prevImgIndex, boxes.length - 1);
-};
+    let index = getIndexFromLightbox();
+    let prevImgIndex = index - 1;
 
-rightButton.onclick = function () {
-    /* Generate Index */
-    let nextImgIndex = getIndexFromLightbox() + 1;
-    changeImgByIndex(nextImgIndex, 0);
-};
-
-/**
- * #### FUNCTIONS ####
- * **/
-
-/**
- * Click on a Thumbnail changes the Img in Lightbox
- * @param e
- * @returns {changeImgViaThumbnail}
- */
-function changeImgViaThumbnail(e) {
-    let src = e.target.src;
-    let img = getImgFromLightbox();
-    img.src = src;
-
-    img.nextElementSibling.innerText = e.target.alt;
-    return this;
-}
-
-/**
- * CLose Lightbox on click except for these ELements
- * IMG, LI, FIGCAPTION, UL, I
- * @param e
- */
-function closeLightbox(e) {
-    if (e.target.tagName !== 'IMG'
-        && e.target.tagName !== 'LI'
-        && e.target.tagName !== 'FIGCAPTION'
-        && e.target.tagName !== 'UL'
-        && e.target.tagName !== 'I'
-    ) {
-        lightBox.style.display = 'none';
+    if(typeof boxes[prevImgIndex] === "undefined"){
+        prevImgIndex = boxes.length - 1;
     }
-
-}
-
-/**
- * Next and Previous Handler
- * @param index
- * @param loopIndex
- */
-function changeImgByIndex(index, loopIndex) {
-    if(typeof boxes[index] === "undefined"){
-        index = loopIndex;
-    }
-
     /* get Previous Img */
-    let prevImg = boxes[index].src;
-    let prevImgDesc = boxes[index].nextElementSibling.innerText;
+    prevImg = boxes[prevImgIndex].src;
+    prevImgDesc = boxes[prevImgIndex].nextElementSibling.innerText;
     // index missing
 
     /* Change current Img in Lightbox to Previous img*/
-    let img = getImgFromLightbox();
+    let img = lightBox.children[0].children[0].children[0];
     img.src = prevImg;
-    img.dataset.index = index;
+    img.dataset.index = prevImgIndex;
     img.nextElementSibling.innerText = prevImgDesc;
-}
+};
 
-/**
- * Get Index From Lightbox
- * @returns {number}
- */
 function getIndexFromLightbox() {
     let img = lightBox.children[0].children[0].children[0];
     let index = img.dataset.index;
+    console.log(typeof index);
     return Number(index)
 }
 
-/**
- * Generates Thumbnails on OpenLightbox Event
- */
+rightButton.onclick = function () {
+    /* Generate Index */
+    let index = getIndexFromLightbox();
+    let prevImgIndex = index + 1;
+    console.log(prevImgIndex);
+    if(typeof boxes[prevImgIndex] === "undefined"){
+        prevImgIndex = 0;
+    }
+    /* get Previous Img */
+    prevImg = boxes[prevImgIndex].src;
+    prevImgDesc = boxes[prevImgIndex].nextElementSibling.innerText;
+    // index missing
+
+    /* Change current Img in Lightbox to Previous img*/
+    let img = lightBox.children[0].children[0].children[0];
+    img.src = prevImg;
+    img.dataset.index = prevImgIndex;
+    img.nextElementSibling.innerText = prevImgDesc;
+};
+
+generateThumbnails();
+
+/** FUNCTIONS **/
+
+function openLightBox(evt) {
+    let imgSrc = evt.target.src;
+    let imgDesc = evt.target.nextElementSibling.innerText;
+    lightBox.style.display = 'block';
+    let img = lightBox.children[0].children[0].children[0];
+    img.src = imgSrc;
+    img.dataset.index = evt.target.dataset.index;
+    img.nextElementSibling.innerText = imgDesc;
+}
+
 function generateThumbnails() {
     let imgSrcs = [];
 
@@ -114,6 +86,7 @@ function generateThumbnails() {
             desc: boxes[i].nextElementSibling.innerText
         });
     }
+    console.log(imgSrcs);
 
     /** Build thumbnails */
     for (let i = 0; i < imgSrcs.length; i++) {
@@ -132,27 +105,25 @@ function generateThumbnails() {
     }
 }
 
-/**
- * Get Image from Lightbox
- * @returns {Element}
- */
-function getImgFromLightbox() {
-    return lightBox.children[0].children[0].children[0];
+function changeImgViaThumbnail(e) {
+    console.log(e);
+    let src = e.target.src;
+    let img = lightBox.children[0].children[0].children[0];
+    img.src = src;
+
+    img.nextElementSibling.innerText = e.target.alt;
+    return this;
 }
 
-/**
- * Opens the Lightbox
- * @param evt
- */
-function openLightBox(evt) {
-    let imgSrc = evt.target.src;
-    let imgDesc = evt.target.nextElementSibling.innerText;
-    lightBox.style.display = 'block';
-    let img = getImgFromLightbox();
-    img.src = imgSrc;
-    img.dataset.index = evt.target.dataset.index;
-    img.nextElementSibling.innerText = imgDesc;
+function closeLightbox(e) {
+    if (e.target.tagName !== 'IMG'
+        && e.target.tagName !== 'LI'
+        && e.target.tagName !== 'FIGCAPTION'
+        && e.target.tagName !== 'UL'
+        && e.target.tagName !== 'I'
+    ) {
+        lightBox.style.display = 'none';
+    }
+
 }
-
-
 
