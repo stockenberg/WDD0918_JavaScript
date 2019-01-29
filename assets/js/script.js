@@ -43,7 +43,6 @@ rightButton.onclick = function () {
  * @returns {changeImgViaThumbnail}
  */
 function changeImgViaThumbnail(e) {
-    console.log(e);
     let src = e.target.src;
     let img = getImgFromLightbox();
     img.src = src;
@@ -115,7 +114,6 @@ function generateThumbnails() {
             desc: boxes[i].nextElementSibling.innerText
         });
     }
-    console.log(imgSrcs);
 
     /** Build thumbnails */
     for (let i = 0; i < imgSrcs.length; i++) {
