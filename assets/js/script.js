@@ -1,46 +1,47 @@
-/*
-    elem.classList.add()
-    elem.classList.remove()
-    elem.classList.toggle()
-*/
+let form = document.querySelector('form.col');
+console.dir(form);
 
-// Variables to store Elements, to check if the Elements are equal
-let currentElement;
-let previousElement;
 
-// Selektiere Buttons
-let btns = document.getElementsByClassName('btn-info');
-console.log(btns);
-
-// Buttons brauchen ein Event
-for(let i = 0; i < btns.length; i++){
-    btns[i].onclick = function (ev) {
-
-        // Store current Element
-        currentElement = ev.target;
-
-        // If first element matches last element
-        if(currentElement === previousElement){
-            console.log('elemente sind gleich');
-            // Toggle Accordion
-            ev.target.nextElementSibling.classList.toggle('visible');
-        }
-        // IF first element not equal last element
-        else{
-            console.log('elemente sind ungleich');
-            // Get all elements with visible class
-            let visible = document.getElementsByClassName('visible')[0];
-
-            if (typeof visible !== 'undefined'){
-                // remove visible class (accordion is closed)
-                visible.classList.remove('visible');
-                console.log('removed');
-            }
-            // open clicked accordion entry
-            ev.target.nextElementSibling.classList.add('visible');
-
-        }
-        // Store last element (in 2nd iteration)
-        previousElement = ev.target;
+form[2].onblur = function (ev) {
+    // console.log('blured');   
+    console.log(form[2].value);
+    if(form[2].value.length === 0){
+       form[2].style.border = 'thin solid red';
+       console.log('Bitte fülle die E-Mail aus');
     }
+}
+
+form[1].onblur = function (ev){
+     // console.log('blured');   
+     console.log(form[1].value);
+     if(form[1].value.length === 0){
+        form[1].style.border = 'thin solid red';
+        console.log('Bitte gib deinen Namen ein');
+     } 
+}
+
+form[4].onclick = function (ev) {
+    console.log(ev);
+    if(ev.target.checked === false){
+        console.log('Bitte checke die AGB');
+    }
+}
+
+/**
+ * obj = {firstname: value, lastname: value, email: value};
+ * arr = ['Hans', 'wurst', 'hans@wurst.de'];
+ */
+
+
+form.onsubmit = function (ev) {
+    ev.preventDefault();
+    console.log('test');
+    console.log(ev);
+    if (
+        ev.target[1].value.length >= 2 && 
+        ev.target[2].value.length >= 6 && ev.target[4].checked) {
+        console.log('formval completed - submit Data');
+    }
+
+ 
 }

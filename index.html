@@ -1,45 +1,51 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <link rel="stylesheet" href="assets/fonts/icofont/icofont-1.0.1.min.css">
-    <meta name="generator" content="Jekyll v3.8.5">
     <title>Cover Template · Bootstrap</title>
-    <style>
-        p.mt-4{
-            display: none;
 
-        }
-        p.mt-4.visible{
-            display: block;
-        }
-    </style>
-
-    <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
 </head>
-<body class="text-center">
-<ul class="list-group">
-    <li class="list-group-item">
-        <button class="btn col btn-info"> <i class="icofont-plus"></i> Click Me</button>
-        <p class="mt-4">Test</p>
-    </li>
-    <li class="list-group-item">
-        <button class="btn col btn-info"> <i class="icofont-plus"></i> Click Me</button>
-        <p class="mt-4">Test</p>
-    </li>
-    <li class="list-group-item">
-        <button class="btn col btn-info"> <i class="icofont-plus"></i> Click Me</button>
-        <p class="mt-4">Test</p>
-    </li>
-    <li class="list-group-item">
-        <button class="btn col btn-info"> <i class="icofont-plus"></i> Click Me</button>
-        <p class="mt-4">Test</p>
-    </li>
-</ul>
-<script src="assets/js/script.js"></script>
+
+<body>
+
+    <br><br><br>
+
+    <main class="container">
+        <div class="row">
+            <form class="col">
+                <div class="form-group">
+                    <label for="firstname">Vorname</label>
+                    <input type="text" class="form-control" id="firstname" placeholder="e.g. Max">
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Nachname</label>
+                    <input type="text" class="form-control" id="lastname" placeholder="e.g. Mustermann">
+                </div>
+                <div class="form-group">
+                    <label for="email">E-Mail-Adresse</label>
+                    <input type="email" class="form-control" id="email" placeholder="max@aol.de">
+                </div>
+                <div class="form-group">
+                    <label for="message">Ihre Nachricht</label>
+                    <textarea class="form-control" id="message" placeholder="Wie können wir helfen?"></textarea>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="agb">
+                    <label class="custom-control-label" for="agb">Agree!</label>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="assets/js/script.js"></script>
 </body>
+
 </html>
