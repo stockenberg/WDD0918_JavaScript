@@ -8,45 +8,50 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <link rel="stylesheet" href="assets/fonts/icofont/icofont-1.0.1.min.css">
     <title>Cover Template · Bootstrap</title>
-    <link href="node_modules/izitoast/dist/css/iziToast.min.css" rel="stylesheet" />
     <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <style>
+        a:hover{
+            text-decoration: none;
+        }
+        li{
+            margin: 10px;
+        }
+        li.active a{
+            background: #21333b; 
+            color: white;
+        }
+        li.active a{
+            padding: 10px 15px;
+        }
+        .tabs div{
+            display: none;
+        }
+        .tabs div.show{
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
 
-    <br><br><br>
 
-    <main class="container">
-        <div class="row">
-            <form class="col">
-                <div class="form-group">
-                    <label for="firstname">Vorname</label>
-                    <input type="text" class="form-control" id="firstname" placeholder="e.g. Max">
-                </div>
-                <div class="form-group">
-                    <label for="lastname">Nachname</label>
-                    <input type="text" class="form-control" id="lastname" placeholder="e.g. Mustermann">
-                    <p class="error hidden" style="display: none;">Test</p>
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#">Menu 1</a></li>
+        <li><a href="#">Menu 2</a></li>
+        <li><a href="#">Menu 3</a></li>
+        <li><a href="#">Menu 4</a></li>
+        <li><a href="#">Menu 5</a></li>
+    </ul>
 
-                </div>
-                <div class="form-group">
-                    <label for="email">E-Mail-Adresse</label>
-                    <input type="email" class="form-control" id="email" placeholder="max@aol.de">
-                </div>
-                <div class="form-group">
-                    <label for="message">Ihre Nachricht</label>
-                    <textarea class="form-control" id="message" placeholder="Wie können wir helfen?"></textarea>
-                </div>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="agb">
-                    <label class="custom-control-label" for="agb">Agree!</label>
-                </div>
-                <br>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-    </main>
-    <script src="node_modules/izitoast/dist/js/iziToast.min.js"></script>
+    <section class="tabs content">
+        <div class="show"> Content 1</div>
+        <div> Content 2</div>
+        <div> Content 3</div>
+        <div> Content 4</div>
+        <div> Content 5</div>
+    </section>
+
+
     <script src="assets/js/script.js"></script>
 </body>
 
