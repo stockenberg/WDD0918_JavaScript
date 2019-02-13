@@ -1,31 +1,19 @@
 
+let joke = document.getElementById('joke');
 
-let tabs = document.querySelectorAll('.nav li');
-console.log(tabs);
+document.getElementById('shuffle').onclick = function () {
+    axios.get("https://api.chucknorris.io/jokes/random")
+        .then(function (res) {
+            console.log(res);
+            console.log(res.data.value)
+            joke.innerHTML = res.data.value;
+        })
+        .catch(function (err) {
+            console.log(err);
+        })
 
-for(let i = 0; i < tabs.length; i++){
-    tabs[i].onclick = function (ev) {
-        ev.preventDefault();
-        // remove active class
-        document.getElementsByClassName('active')[0]
-                    .classList.remove('active');
-
-        /* Activate clicked tab */
-        ev.target.parentElement.classList.add('active');
-
-
-        /* Converts an HTML Collection to an regular Array */
-        let arr = [].slice.call(ev.target.parentElement.parentElement.children);
-        
-        /* GET index from li element */
-        let index = arr.indexOf(ev.target.parentElement);
-
-        document.getElementsByClassName('show')[0]
-                    .classList.remove('show');
-                    
-        document.getElementsByClassName('tabs')[0].children[index]
-                    .classList.add('show');
-
-    }
 
 }
+
+
+// https://www.reddit.com/r/webdev/comments/3wrswc/what_are_some_fun_apis_to_play_with/

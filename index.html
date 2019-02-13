@@ -9,49 +9,15 @@
     <link rel="stylesheet" href="assets/fonts/icofont/icofont-1.0.1.min.css">
     <title>Cover Template · Bootstrap</title>
     <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <style>
-        a:hover{
-            text-decoration: none;
-        }
-        li{
-            margin: 10px;
-        }
-        li.active a{
-            background: #21333b; 
-            color: white;
-        }
-        li.active a{
-            padding: 10px 15px;
-        }
-        .tabs div{
-            display: none;
-        }
-        .tabs div.show{
-            display: block;
-        }
-    </style>
+    
 </head>
 
 <body>
 
+    <button id="shuffle">Shuffle</button>
+    <h2 id="joke">Joke..</h2>
 
-    <ul class="nav nav-tabs">
-        <li class="active"><a href="#">Menu 1</a></li>
-        <li><a href="#">Menu 2</a></li>
-        <li><a href="#">Menu 3</a></li>
-        <li><a href="#">Menu 4</a></li>
-        <li><a href="#">Menu 5</a></li>
-    </ul>
-
-    <section class="tabs content">
-        <div class="show"> Content 1</div>
-        <div> Content 2</div>
-        <div> Content 3</div>
-        <div> Content 4</div>
-        <div> Content 5</div>
-    </section>
-
-
+    <script src="node_modules/axios/dist/axios.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 
