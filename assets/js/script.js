@@ -1,19 +1,15 @@
 
-let joke = document.getElementById('joke');
-
-document.getElementById('shuffle').onclick = function () {
-    axios.get("https://api.chucknorris.io/jokes/random")
-        .then(function (res) {
-            console.log(res);
-            console.log(res.data.value)
-            joke.innerHTML = res.data.value;
-        })
-        .catch(function (err) {
-            console.log(err);
-        })
 
 
-}
+$('#gallery figure img').click(function (ev) {
+    $('#lightbox')
+        .fadeIn(500)
+        .find('img')
+        .attr('src', ev.target.src);
 
+    $('#lightbox img').click(function () {
+        $('#lightbox')
+            .fadeOut(500);
+    })
+})
 
-// https://www.reddit.com/r/webdev/comments/3wrswc/what_are_some_fun_apis_to_play_with/

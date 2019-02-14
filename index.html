@@ -9,15 +9,63 @@
     <link rel="stylesheet" href="assets/fonts/icofont/icofont-1.0.1.min.css">
     <title>Cover Template · Bootstrap</title>
     <link href="assets/css/bootstrap.css" rel="stylesheet">
-    
+    <style>
+        .hidden{
+            display: none;
+        }
+        #lightbox{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.5);
+        }
+
+        #lightbox img{
+            display: block;
+            height: 500px;
+            width: auto;
+            margin: 20vh auto;
+        }
+        img{
+            height: 200px;
+            width: auto;
+        }
+    </style>
 </head>
 
 <body>
 
-    <button id="shuffle">Shuffle</button>
-    <h2 id="joke">Joke..</h2>
+    <section id="gallery">
+        <figure>
+            <img src="https://www.ok-magazin.de/sites/default/files/styles/article_main/public/media/gallery/2018/11/23/lion_king1.jpg" alt="">
+            <figcaption>Unterschrift</figcaption>
+        </figure>
 
-    <script src="node_modules/axios/dist/axios.min.js"></script>
+        <figure>
+            <img src="https://www.ndr.de/ratgeber/reise/mecklenburgische_ostseekueste/polarium126_v-contentgross.jpg" alt="">
+            <figcaption>Unterschrift</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://assets.pixolum.com/blog/wp-content/uploads/2016/10/focus-stacking-scharfe-bilder-1.jpg" alt="">
+            <figcaption>Unterschrift</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://www.dvd-forum.at/img/uploaded/It.jpg" alt="">
+            <figcaption>Unterschrift</figcaption>
+        </figure>
+    </section>
+    
+    <div id="lightbox" class="hidden">
+        <figure>
+            <img src="" alt="">
+        </figure>
+    </div>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 
